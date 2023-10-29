@@ -13,8 +13,8 @@ const NavBar = () => {
     <Spacer/>
     <Stack direction={'row'} spacing={4}>
   <Box w='auto' h='10' marginTop={3} >
-  <Menu>
-  <MenuButton as={Button} >
+  <Menu >
+  <MenuButton as={Button} colorScheme='whiteAlpha' border="1px" color="#B2840B">
     Despensa
   </MenuButton>
   <MenuList>
@@ -25,7 +25,7 @@ const NavBar = () => {
 </Menu></Box>
 <Box w='auto' h='10' marginTop={3}>
   <Menu paddingX="10px">
-  <MenuButton as={Button} >
+  <MenuButton as={Button} colorScheme='whiteAlpha' border="1px" borderRadius="10px" color="#B2840B">
     Alimentos Naturales
   </MenuButton>
   <MenuList>
@@ -36,7 +36,7 @@ const NavBar = () => {
 </Menu></Box>
 <Box w='auto' h='10' marginTop={3}>
   <Menu>
-  <MenuButton as={Button}>
+  <MenuButton as={Button} colorScheme="whiteAlpha" border="1px" color="#B2840B">
     Bebidas e Infusiones
   </MenuButton>
   <MenuList>
