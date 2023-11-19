@@ -1,12 +1,8 @@
-import { Badge, Stack, Image, Card, CardBody, CardFooter, Heading,Divider,ButtonGroup,Button,Text, Grid, GridItem, Spacer, Box } from '@chakra-ui/react'
 import React from 'react'
-import { useState } from 'react'
-import "./css/itemList.css"
-import { Link, useParams } from 'react-router-dom'
+import ItemDetail from './ItemDetail'
 
+const ItemDetailContainer = () => {
 
-const ItemListContainer = () => {
-const {categoria} = useParams()
 const productos =[
   {id: 1, titulo: "Aceite Girasol", descripcion: "Aceite Natural a base de Girasol", precio: 300, categoria: "Aceite", imagen: "./girasol.jpeg"},
   {id: 2, titulo: "Aceite de Oliva", descripcion: "Aceite Natural a base de Oliva", precio: 3000, categoria: "Aceite", imagen: "./oliva.jpeg"},
@@ -29,9 +25,7 @@ const productos =[
   {id: 20, titutlo: "Memelada Naranja", descripcion: "Mermelada 100% Natural", precio: 1500, categoria: "Mermeladas", imagen: "./mermelada2.jpeg"}
 ]
 
-const [count, setCount] = useState(0)
-
-const mostrarProductos = new Promise((resolve, reject) => {
+/* const mostrarProductos = new Promise((resolve, reject) => {
   if (productos.length > 0){
     setTimeout(()=>{
       resolve(productos)
@@ -49,52 +43,12 @@ mostrarProductos
 
 .catch((error) =>{
   console.log(error)
-})
-
-const categoriaFiltrado = categoria!=undefined ?productos.filter((p)=>p.categoria == categoria):productos
-
+}) */
   return (
-
-    
-<div>
-  
-  <Spacer/>
-<Grid templateColumns='repeat(3, 1fr)' gap={6}>
-  {
-    categoriaFiltrado.map((productos)=>{
-      return(
-        <GridItem w='auto' h='auto'  key={productos.id}>
-          
-          <Card maxW='sm'>
-  <CardBody>
-    <Image
-    className="imagen-card"
-      src={productos.imagen}
-      alt=''
-      borderRadius='lg'
-    />
-    <Stack mt='6' spacing='3'>
-      <Heading size='md'>{productos.titulo}</Heading>
-      <Text>
-        {productos.descripcion}
-      </Text>
-
-    </Stack>
-  </CardBody>
-  <Divider />
-  <CardFooter >
-      <Button variant='ghost' colorScheme='blue'fontSize='20px'><Link to={`/producto/${productos.id}`}>
-        Detalle
-        </Link>
-      </Button>
-  </CardFooter>
-</Card>  </GridItem>
-        
-      )
-    })
-  }</Grid>
-</div>
+    <div>
+      <ItemDetail productos = {productos}/>
+    </div>
   )
 }
 
-export default ItemListContainer
+export default ItemDetailContainer

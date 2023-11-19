@@ -51,7 +51,7 @@ mostrarProductos
   console.log(error)
 })
 
-const categoriaFiltrado = categoria!=undefined ?productos.filter((p)=>p.categoria == categoria):productos
+const categoriaFiltrado = productos.filter((p)=>p.categoria == categoria)
 
   return (
 
