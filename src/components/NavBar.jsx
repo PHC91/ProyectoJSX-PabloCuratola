@@ -13,7 +13,7 @@ const NavBar = () => {
   <Box w='100px' h='auto'>
     <Link to={"/"}>
   <Image boxSize='80px'
-    objectFit='cover' src="./palta1.png"  ></Image>
+    objectFit='cover' src="/palta1.png"  ></Image>
     </Link> 
     </Box>
     <Spacer/>
