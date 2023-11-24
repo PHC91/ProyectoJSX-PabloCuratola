@@ -81,7 +81,7 @@ const NavBar = () => {
   </MenuButton>
   <MenuList>
     <MenuItem><Link to={`/categoria/${'Aceite'}`}>Aceites</Link></MenuItem>
-    <MenuItem><Link to={`/categoria/${'Edulcorantes'}`}>Edulcorantes Naturales</Link></MenuItem>
+    <MenuItem><Link to={`/categoria/${'Edulcorante'}`}>Edulcorantes Naturales</Link></MenuItem>
     <MenuItem><Link to={`/categoria/${'Conservas'}`}>Conservas</Link></MenuItem>
   </MenuList>
 </Menu>
@@ -107,7 +107,7 @@ const NavBar = () => {
   </MenuButton>
   <MenuList>
     <MenuItem><Link to={`/categoria/${'Leche Vegetal'}`}>Leches Vegetales</Link></MenuItem>
-    <MenuItem><Link to={`/categoria/${'Tes del mundo'}`}>Tes del Mundo</Link></MenuItem>
+    <MenuItem><Link to={`/categoria/${'TDM'}`}>Tes del Mundo</Link></MenuItem>
     <MenuItem><Link to={`/categoria/${'Jugos'}`}>Jugos</Link></MenuItem>
   </MenuList>
 </Menu>

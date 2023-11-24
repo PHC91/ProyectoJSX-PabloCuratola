@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Badge, Card, Stack, Image, CardBody, CardFooter, Heading,ButtonGroup,Button,Text, Grid, Divider } from '@chakra-ui/react'
+import { Badge,Center,Box, Card, Stack, Image, CardBody, CardFooter, Heading,ButtonGroup,Button,Text, Grid, Divider, AbsoluteCenter } from '@chakra-ui/react'
 import { Link, useParams } from 'react-router-dom'
 
 
@@ -10,12 +10,14 @@ const ItemDetail = ({productos}) => {
     const {id} = useParams();
     
     const [productosMostrar,setProductosMostrar] = useState([])
-    useEffect(()=>{
+    const [count, setCount] = useState(0)
+    useEffect(()=>{ 
       const filtrarProductos = productos.filter((producto) => producto.id ==id)
       setProductosMostrar(filtrarProductos)
     })
   return(
-    <div>
+    <Box position="relative">
+      <Center>
       {productosMostrar.map((producto) =>{
     return (
     <div key={producto.id}>
@@ -45,9 +47,13 @@ const ItemDetail = ({productos}) => {
     <CardFooter >
     <Grid templateColumns='repeat(2, 1fr)' gap={6}>
       <ButtonGroup spacing='4'>
+        
       <Button colorScheme='teal' variant='outline' onClick={() => count<10?setCount(count+1):setCount(count)}>
       +
     </Button>
+    <Box px={4}  fontSize='3xl' layerStyle='selected'>
+{count}
+    </Box>
 
     <Button colorScheme='teal' variant='outline' onClick={() => count>0?setCount(count-1):setCount(count)}>
       -
@@ -63,6 +69,7 @@ const ItemDetail = ({productos}) => {
     </CardFooter>
   </Card> </div>
   )})}
-</div>)}
+  </Center>
+</Box>)}
 
 export default ItemDetail
