@@ -4,7 +4,7 @@ import { useState } from 'react'
 import "./css/itemList.css"
 import { Link, useParams } from 'react-router-dom'
 import Carrusel from "./Carrusel"
- 
+import Suscripcion from './Suscripcion' 
 
 const ItemListContainer = () => {
 const {categoria} = useParams()
@@ -83,8 +83,9 @@ useEffect(()=>{
     })
   }</Grid>
   </Center>
+<Suscripcion/>
 </Box>
-  )
+)
 }
 
 export default ItemListContainer

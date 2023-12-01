@@ -1,11 +1,17 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import CardWirdget from './CardWirdget'
 import { Menu, MenuButton, MenuList, MenuItem, Avatar, Flex, Box, Image, Spacer, Button, Stack, Input,InputGroup, InputLeftElement} from '@chakra-ui/react'
 import { SearchIcon } from '@chakra-ui/icons'
 
+
+
+
 const NavBar = () => {
+  const [icono, setIcono] = useState (false)
   return (
+
+
     <Box>
     <div>
       <Box bg='#92DA0B'>
@@ -61,7 +67,7 @@ const NavBar = () => {
 <Spacer/>
 
 <Stack direction='row' marginTop={5}>
-  <Avatar name='' src='https://bit.ly/broken-link' />
+{icono?<Avatar onClick={() => setIcono(!icono)}ah bg='teal.500'/>:<Avatar onClick={() => setIcono(!icono)} name='' src='https://bit.ly/broken-link'></Avatar>}
 </Stack>
 <Box w='100px' h='10' marginTop={5}><Link to={"/Cart"}>
   <CardWirdget/></Link></Box>

@@ -8,6 +8,8 @@ import Cart from "./components/Cart"
 import React from "react"
 import About from "./components/About"
 import ItemDetailContainer from "./components/ItemDetailContainer"
+import Footer from "./components/Footer"
+
 
 
 const App = () => {
@@ -24,7 +26,8 @@ const App = () => {
           <Route exact path="/categoria/:categoria" element={<ItemListContainer/>}/>
           <Route exact path="/" element={<ItemListContainer/>}/>
       </Routes>
-     
+  
+     <Footer/>
       
       </BrowserRouter>   
       </div>
