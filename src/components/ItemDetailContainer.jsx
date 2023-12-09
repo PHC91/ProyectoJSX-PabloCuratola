@@ -36,7 +36,7 @@ useEffect(()=> {
   const id = setTimeout(() =>{
     setProductosMostrar([productos])
     setLoading(false)
-  }, 5000);
+  }, 2500);
    return () =>{
     clearTimeout(id);
   }

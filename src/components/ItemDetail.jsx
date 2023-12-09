@@ -1,25 +1,41 @@
-import React, { useEffect, useState } from 'react'
-import { Badge,Center,Box, Card, Stack, Image, CardBody, CardFooter, Heading,ButtonGroup,Button,Text, Grid, Divider, AbsoluteCenter } from '@chakra-ui/react'
-import { Link, useParams } from 'react-router-dom'
-
-
+import React, { useContext, useEffect, useState } from 'react'
+import {Center,Box, Card, Stack, Image, CardBody, CardFooter, Heading,ButtonGroup,Button,Text, Grid, Divider } from '@chakra-ui/react'
+import {useParams } from 'react-router-dom'
+import ItemCount from './ItemCount';
+import {CartContext}  from './CartContext'
 
 
 const ItemDetail = ({productos}) => {
-
-    const {id} = useParams();
+  const {carrito, agregarCarrito} = useContext(CartContext)
+  
+  const [count, setCount] = useState(1)
+  
+  const {id} = useParams();
+  const [productosMostrar,setProductosMostrar] = useState([])
+  
+  useEffect(()=>{ 
+    const filtrarProductos = productos.filter((producto) => producto.id ==id)
+    setProductosMostrar(filtrarProductos)
+  })
+  
+  
+  
+  const handleSumar = () => {
+    count<10?setCount(count+1):setCount(count)
+  }
+  
+  const handleRestar = () => {
+    count>0?setCount(count-1):setCount(count)
+  }
+  
+ 
     
-    const [productosMostrar,setProductosMostrar] = useState([])
-    const [count, setCount] = useState(0)
-    useEffect(()=>{ 
-      const filtrarProductos = productos.filter((producto) => producto.id ==id)
-      setProductosMostrar(filtrarProductos)
-    })
-  return(
-    <Box position="relative">
+  
+    return(
+      <Box position="relative">
       <Center>
       {productosMostrar.map((producto) =>{
-    return (
+        return (
     <div key={producto.id}>
         <Card maxW='sm'>
     <CardBody>
@@ -45,27 +61,7 @@ const ItemDetail = ({productos}) => {
     </CardBody>
     <Divider />
     <CardFooter >
-    <Grid templateColumns='repeat(2, 1fr)' gap={6}>
-      <ButtonGroup spacing='4'>
-        
-      <Button colorScheme='teal' variant='outline' onClick={() => count<10?setCount(count+1):setCount(count)}>
-      +
-    </Button>
-    <Box px={4}  fontSize='3xl' layerStyle='selected'>
-{count}
-    </Box>
-
-    <Button colorScheme='teal' variant='outline' onClick={() => count>0?setCount(count-1):setCount(count)}>
-      -
-    </Button></ButtonGroup> 
-        <Button variant='solid' colorScheme='blue'>
-          Comprar
-        </Button>
-        <Button variant='ghost' colorScheme='blue'fontSize='20px'>
-          Agregar al Carrito
-        </Button>
-        
-        </Grid>
+    <ItemCount count={count} handleSumar={handleSumar} handleRestar={handleRestar} handleAgregar={()=>{agregarCarrito(producto, count)}}/>
     </CardFooter>
   </Card> </div>
   )})}

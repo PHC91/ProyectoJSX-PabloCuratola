@@ -1,0 +1,11 @@
+.customBorder {
+    border: 5px solid #48be12;
+    padding: 20px 20px 20px 100px;
+    font-size: 30px;
+}
+
+.formContacto{
+    margin: 50px;
+    padding: 50px;
+    background-color: #a2cf41;
+}

@@ -1,10 +1,12 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
+import './Footer';
+
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary text-light ">
-      <Container >
+    <footer className="bg-secondary text-light  boTTom" >
+      <Container  >
         <Row >
           <Col sm="4" >
             <h5>Información de contacto</h5>

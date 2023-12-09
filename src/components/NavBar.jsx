@@ -3,12 +3,19 @@ import {Link} from 'react-router-dom'
 import CardWirdget from './CardWirdget'
 import { Menu, MenuButton, MenuList, MenuItem, Avatar, Flex, Box, Image, Spacer, Button, Stack, Input,InputGroup, InputLeftElement} from '@chakra-ui/react'
 import { SearchIcon } from '@chakra-ui/icons'
-
+import Carrito from './Carrito'
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import "./NavBar.css"
 
 
 
 const NavBar = () => {
   const [icono, setIcono] = useState (false)
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
 
 
@@ -29,48 +36,14 @@ const NavBar = () => {
     </InputLeftElement>
     <Input placeholder='' />
   </InputGroup>
-    {/* <Stack direction={'row'} spacing={4}>
-  <Box w='auto' h='10' marginTop={3} >
-  <Menu >
-  <MenuButton as={Button} colorScheme='whiteAlpha' border="1px" color="#B2840B">
-    Despensa
-  </MenuButton>
-  <MenuList>
-    <MenuItem>Aceites</MenuItem>
-    <MenuItem>Edulcorantes Naturales</MenuItem>
-    <MenuItem>Conservas</MenuItem>
-  </MenuList>
-</Menu></Box>
-<Box w='auto' h='10' marginTop={3}>
-  <Menu paddingX="10px">
-  <MenuButton as={Button} colorScheme='whiteAlpha' border="1px" color="#B2840B">
-    Alimentos Naturales
-  </MenuButton>
-  <MenuList>
-    <MenuItem>Frutos Secos</MenuItem>
-    <MenuItem>Barritas y Snacks</MenuItem>
-    <MenuItem>Dulces y Mermeladas</MenuItem>
-  </MenuList>
-</Menu></Box>
-<Box w='auto' h='10' marginTop={3}>
-  <Menu>
-  <MenuButton as={Button} colorScheme="whiteAlpha" border="1px" color="#B2840B">
-    Bebidas e Infusiones
-  </MenuButton>
-  <MenuList>
-    <MenuItem>Leches Vegetales</MenuItem>
-    <MenuItem>Tes del Mundo</MenuItem>
-    <MenuItem>Jugos</MenuItem>
-  </MenuList>
-</Menu></Box>
-</Stack> */}
+   
 <Spacer/>
 
 <Stack direction='row' marginTop={5}>
 {icono?<Avatar onClick={() => setIcono(!icono)}ah bg='teal.500'/>:<Avatar onClick={() => setIcono(!icono)} name='' src='https://bit.ly/broken-link'></Avatar>}
 </Stack>
-<Box w='100px' h='10' marginTop={5}><Link to={"/Cart"}>
-  <CardWirdget/></Link></Box>
+<Box w='100px' h='10' marginTop={5} onClick={handleShow}>
+  <CardWirdget/></Box>
 </Flex>
 
 </Box>
@@ -78,50 +51,50 @@ const NavBar = () => {
     <div>
   <Box w='100%' h='100%'   >
   <Flex justifyContent="center" alignItems="center" gap="5" margin=" 20px 0px" >
-  <Button as={Button} colorScheme='whiteAlpha' border="1px" color="#B2840B">
+    <Nav>
+  <Nav.Link  className="NavLink" border="1px">
     Nosotros
-  </Button>
-  <Menu >
-  <MenuButton as={Button} colorScheme='whiteAlpha' border="1px" color="#B2840B">
-    Despensa
-  </MenuButton>
-  <MenuList>
-    <MenuItem><Link to={`/categoria/${'Aceite'}`}>Aceites</Link></MenuItem>
-    <MenuItem><Link to={`/categoria/${'Edulcorante'}`}>Edulcorantes Naturales</Link></MenuItem>
-    <MenuItem><Link to={`/categoria/${'Conservas'}`}>Conservas</Link></MenuItem>
-  </MenuList>
-</Menu>
-  <Menu paddingX="10px">
-  <MenuButton as={Button} colorScheme='whiteAlpha' border="1px" color="#B2840B">
-    Alimentos Naturales
-  </MenuButton>
-  <MenuList>
-    <MenuItem>
+  </Nav.Link>
+  </Nav>
+  <Nav >
+  <NavDropdown title="Despensa" id="" color="#B2840B">
+  <NavDropdown.Item eventKey="4.1"><Link to={`/categoria/${'Aceite'}`}>Aceites</Link></NavDropdown.Item>
+  <NavDropdown.Item eventKey="4.2"><Link to={`/categoria/${'Edulcorante'}`}>Edulcorantes Naturales</Link></NavDropdown.Item>
+    <NavDropdown.Item eventKey="4.3"><Link to={`/categoria/${'Conservas'}`}>Conservas</Link></NavDropdown.Item>
+
+  </NavDropdown>
+</Nav>
+  <Nav paddingX="10px">
+  <NavDropdown title="Alimentos Naturales" id=""color="#B2840B">
+    <NavDropdown.Item eventKey="4.1">
     <Link to={`/categoria/${'Frutos Secos'}`}>
-    Frutos Secos</Link></MenuItem>
-    <MenuItem>
-    <Link to={`/categoria/${'Barritas'}`}>Barritas y Snacks</Link></MenuItem>
-    <MenuItem>
+    Frutos Secos</Link></NavDropdown.Item>
+    <NavDropdown.Item eventKey="4.2">
+    <Link to={`/categoria/${'Barritas'}`}>Barritas y Snacks</Link>
+    </NavDropdown.Item>
+    <NavDropdown.Item eventKey="4.3">
     <Link to={`/categoria/${'Mermeladas'}`} >
-    Dulces y Mermeladas</Link></MenuItem>
-  </MenuList>
-</Menu>
+    Dulces y Mermeladas</Link></NavDropdown.Item>
+  </NavDropdown>
+</Nav>
 
-  <Menu>
-  <MenuButton as={Button} colorScheme="whiteAlpha" border="1px" color="#B2840B">
+  <Nav>
+  <NavDropdown title="Bebidas e Infusiones" id="nav-dropdown" color="#B2840B">
     Bebidas e Infusiones
-  </MenuButton>
-  <MenuList>
-    <MenuItem><Link to={`/categoria/${'Leche Vegetal'}`}>Leches Vegetales</Link></MenuItem>
-    <MenuItem><Link to={`/categoria/${'TDM'}`}>Tes del Mundo</Link></MenuItem>
-    <MenuItem><Link to={`/categoria/${'Jugos'}`}>Jugos</Link></MenuItem>
-  </MenuList>
-</Menu>
-<Button as={Button} colorScheme='whiteAlpha' border="1px" color="#B2840B">
-    Contacto
-  </Button>
+    <NavDropdown.Item eventKey="4.1"><Link to={`/categoria/${'Leche Vegetal'}`}>Leches Vegetales</Link></NavDropdown.Item>
+    <NavDropdown.Item eventKey="4.2"><Link to={`/categoria/${'TDM'}`}>Tes del Mundo</Link></NavDropdown.Item>
+    <NavDropdown.Item eventKey="4.3"><Link to={`/categoria/${'Jugos'}`}>Jugos</Link></NavDropdown.Item>
+  </NavDropdown>
+</Nav>
+<Nav>
+<Nav.Item colorScheme='#B2840B' border="1px" color="#B2840B">
+  <Nav.Link> <Link to="/Contacto">
+    Contacto </Link>
+    </Nav.Link>
+    </Nav.Item>
+  </Nav>
 </Flex> </Box>
-
+<Carrito show={show} handleClose={handleClose}/>
     </div>
     </Box>
   )

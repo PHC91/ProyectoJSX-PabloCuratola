@@ -5,7 +5,7 @@ const ProductDetail = () => {
 const {id} =useParams()
 productos.find((p) => p.id ===id)
     return (
-    <div>ProductDetail</div>
+    <div></div>
   )
 }
 
