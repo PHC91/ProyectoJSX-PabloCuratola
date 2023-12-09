@@ -37,7 +37,7 @@ const ItemDetail = ({productos}) => {
       {productosMostrar.map((producto) =>{
         return (
     <div key={producto.id}>
-        <Card maxW='sm'>
+        <Card maxW='md' className='m-5'>
     <CardBody>
       <Image
       className="imagen-card"

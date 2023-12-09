@@ -4,7 +4,7 @@ import ItemListContainer from "./components/ItemListContainer"
 import NavBar from "./components/NavBar"
 import Home from "./components/Home"
 import Carrusel from "./components/Carrusel"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import About from "./components/About"
 import ItemDetailContainer from "./components/ItemDetailContainer"
 import Footer from "./components/Footer"
@@ -15,7 +15,9 @@ import CardWirdget from "./components/CardWirdget"
 
 
 const App = () => {
-  const [carrito, setCarrito] = useState([]);
+  
+  const carritoStorage = JSON.parse(localStorage.getItem("carrito")) || [];
+  const [carrito, setCarrito] = useState(carritoStorage);
 
   const agregarCarrito = (producto, count) => {
     const itemAgregado ={...producto,count};
@@ -37,13 +39,26 @@ const precioTotal = () => {
   return carrito.reduce ((acc,prod) => acc + prod.precio * prod.count,0)
 }
 
+const eliminarProducto = (idProducto) => {
+  const nuevoCarrito = [...carrito];
+  let index = nuevoCarrito.findIndex((prod) =>prod.id == idProducto)
+  nuevoCarrito.splice(index,1)
+  setCarrito(nuevoCarrito);
+}
+
 const vaciarCarrito = () =>{
     setCarrito([]);
 }
 
+useEffect(() => {
+  
+  localStorage.setItem("carrito",JSON.stringify(carrito))
+}, [carrito])
+
+
   return (
     <div>
-    <CartContext.Provider value={{carrito, agregarCarrito, cantidadCarrito, precioTotal, vaciarCarrito}}>
+    <CartContext.Provider value={{carrito, agregarCarrito, cantidadCarrito, precioTotal, vaciarCarrito, eliminarProducto}}>
       <BrowserRouter>
       <NavBar/>
       <Routes>

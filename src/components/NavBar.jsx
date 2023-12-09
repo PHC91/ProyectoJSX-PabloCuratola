@@ -80,7 +80,6 @@ const NavBar = () => {
 
   <Nav>
   <NavDropdown title="Bebidas e Infusiones" id="nav-dropdown" color="#B2840B">
-    Bebidas e Infusiones
     <NavDropdown.Item eventKey="4.1"><Link to={`/categoria/${'Leche Vegetal'}`}>Leches Vegetales</Link></NavDropdown.Item>
     <NavDropdown.Item eventKey="4.2"><Link to={`/categoria/${'TDM'}`}>Tes del Mundo</Link></NavDropdown.Item>
     <NavDropdown.Item eventKey="4.3"><Link to={`/categoria/${'Jugos'}`}>Jugos</Link></NavDropdown.Item>
