@@ -20,6 +20,8 @@ const App = () => {
   const [carrito, setCarrito] = useState(carritoStorage);
 
   const agregarCarrito = (producto, count) => {
+    console.log(producto)
+    console.log(carrito)
     const itemAgregado ={...producto,count};
     const nuevoCarrito = [...carrito];
     const estaEnElCarrito = carrito.find((producto) => producto.id === itemAgregado.id);

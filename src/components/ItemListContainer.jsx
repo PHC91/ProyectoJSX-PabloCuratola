@@ -5,9 +5,11 @@ import "./css/itemList.css"
 import { Link, useParams } from 'react-router-dom'
 import Carrusel from "./Carrusel"
 import Suscripcion from './Suscripcion' 
+import { collection, getDocs } from 'firebase/firestore'
+import {db}  from '../firebase/firebase'
 
 const ItemListContainer = () => {
-const {categoria} = useParams()
+const {categoria} = useParams()/* 
 const productos =[
   {id: 1, titulo: "Aceite Girasol", descripcion: "Aceite Natural a base de Girasol", precio: 300, categoria: "Aceite", imagen: "/girasol.jpeg"},
   {id: 2, titulo: "Aceite de Oliva", descripcion: "Aceite Natural a base de Oliva", precio: 3000, categoria: "Aceite", imagen: "/oliva.jpeg"},
@@ -28,16 +30,45 @@ const productos =[
   {id: 18, titutlo: "Jugo Natural a base de te", descripcion: "", precio: 500, categoria: "Jugos", imagen: "/jugos2.jpeg"},
   {id: 19, titutlo: "Mermelada Frutos Rojos", descripcion: "Mermelada 100% Natural", precio: 1500, categoria: "Mermeladas", imagen: "/mermelada1.jpeg"},
   {id: 20, titutlo: "Memelada Naranja", descripcion: "Mermelada 100% Natural", precio: 1500, categoria: "Mermeladas", imagen: "/mermelada2.jpeg"}
-]
+] */
 
 const [count, setCount] = useState(0)
 const [productosMostrar,setProductosMostrar] = useState([])
 
-useEffect(()=>{
-  const categoriaFiltrado = categoria!=undefined ?productos.filter((p)=>p.categoria == categoria):productos
-  setProductosMostrar(categoriaFiltrado)
-})
+// useEffect(()=>{
+//   const categoriaFiltrado = categoria!=undefined ?productos.filter((p)=>p.categoria == categoria):productos
+//   setProductosMostrar(categoriaFiltrado)
+// })
 
+useEffect(() => {
+const productos = collection(db, "productos"); 
+getDocs(productos)
+.then ((resp) => {
+  //console.log(resp.docs[0].data())
+  if(categoria!=undefined){
+    setProductosMostrar(
+      resp.docs.map((doc)=>{
+        
+        return{
+          ...doc.data(), id: doc.id
+        }
+      }).filter((p)=>p.categoria == categoria)
+    )
+  }else{
+    setProductosMostrar(
+      resp.docs.map((doc)=>{
+        
+        return{
+          ...doc.data(), id: doc.id
+        }
+      })
+    )
+  }
+
+ 
+}
+) 
+}, [])
 
 
   return (
