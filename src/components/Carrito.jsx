@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
+import { Link } from 'react-router-dom';
 
 
 const Carrito = ({show, handleClose}) => {
@@ -61,11 +62,13 @@ const Carrito = ({show, handleClose}) => {
         <Modal.Footer>
            <Container fluid>
             <Col> 
-        <Button className="m-2 w-100" variant="success" onClick={handleClose}>Iniciar Compra</Button>
+        <Button className="m-2 w-100" variant="success" onClick={handleClose}>
+         <Link to="/Checkout"> Finalizar Compra</Link>
+          </Button>
         </Col>
         <Col>
         <Button variant='none' className='w-100' onClick={handleClose}>
-Ver mas productos
+<Link to="/"> Ver mas productos </Link>
           </Button>
           </Col>
           </Container>

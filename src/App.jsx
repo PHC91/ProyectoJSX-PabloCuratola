@@ -12,6 +12,7 @@ import Contacto from "./components/Contacto"
 import { CartContext } from "./components/CartContext"
 import Carrito from "./components/Carrito"
 import CardWirdget from "./components/CardWirdget"
+import Checkout from "./components/Checkout"
 
 
 const App = () => {
@@ -72,7 +73,8 @@ useEffect(() => {
           <Route exact path="/" element={<ItemListContainer/>}/>
           <Route exact path="/Contacto" element={<Contacto/>}/>
           <Route exact path="/Carrito" element={<Carrito/>}/>
-          <Route exact path="/CardWirdget" element={<CardWirdget/>}/> 
+          <Route exact path="/CardWirdget" element={<CardWirdget/>}/>
+          <Route exact path="/Checkout" element={<Checkout/>}/>  
       </Routes>
   
      <Footer/>
