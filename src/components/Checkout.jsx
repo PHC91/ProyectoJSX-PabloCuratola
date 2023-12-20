@@ -10,7 +10,7 @@ import { db } from '../firebase/firebase';
 import Container from 'react-bootstrap/Container';
 import Swal from 'sweetalert2';
 import ItemListContainer from './ItemListContainer';
-
+import Card from 'react-bootstrap/Card';
 
 const Checkout = () => {
 
@@ -29,7 +29,7 @@ const Checkout = () => {
         productos : carrito,
         precio: precioTotal(),
     }
-    console.log(pedido);
+  
 
     const pedidosRef = collection(db, "pedidos");
 
@@ -37,17 +37,17 @@ const Checkout = () => {
     .then ((doc) =>{
       setPedidoId(doc.id);
       vaciarCarrito();
+      <ItemListContainer/>
     })
   }
   
   
   
   if (pedidoId){
-    <ItemListContainer/>
     return (
     Swal.fire({
       title: "Pedido Confirmado",
-      text: "El codigo de su pedido es: ${pedidoId}", 
+      text: `El codigo de su pedido es: ${pedidoId}`, 
       icon: "success"
     })
     )
@@ -55,8 +55,8 @@ const Checkout = () => {
     return (
       
     <div>
-      <h1>Finalizar Compra</h1>
-
+      <Card className='customBorder' style={{border:"2px solid greenyellow" }}>
+      Finalizar Compra</Card>
     <Col  md="12" className=" w-75">
           <Form className=" m-5 p-2" onSubmit={handleSubmit(comprar)} style={{ background:"#a2cf41", borderRadius:"2px" }}>
           <Form.Group className="mb-1" >

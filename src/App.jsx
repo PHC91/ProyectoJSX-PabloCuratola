@@ -13,16 +13,17 @@ import { CartContext } from "./components/CartContext"
 import Carrito from "./components/Carrito"
 import CardWirdget from "./components/CardWirdget"
 import Checkout from "./components/Checkout"
+import { useToast } from '@chakra-ui/react'
 
 
 const App = () => {
   
   const carritoStorage = JSON.parse(localStorage.getItem("carrito")) || [];
   const [carrito, setCarrito] = useState(carritoStorage);
+  const toast = useToast()
 
   const agregarCarrito = (producto, count) => {
-    console.log(producto)
-    console.log(carrito)
+
     const itemAgregado ={...producto,count};
     const nuevoCarrito = [...carrito];
     const estaEnElCarrito = carrito.find((producto) => producto.id === itemAgregado.id);
@@ -31,7 +32,16 @@ const App = () => {
   } else {
     nuevoCarrito.push(itemAgregado)
   }
+  
   setCarrito(nuevoCarrito);
+  toast({
+    title: 'Producto Agregado',
+    description: `Has agregado el producto ${producto.titulo}. \n Cantidad: ${itemAgregado.count}`,
+    status: 'success',
+    position: 'bottom-right',
+    duration: 9000,
+    isClosable: true,
+  })
 }
 
  const cantidadCarrito = () =>{

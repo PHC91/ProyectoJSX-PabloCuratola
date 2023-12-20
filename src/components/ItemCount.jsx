@@ -18,9 +18,6 @@ const ItemCount = ({count, handleSumar, handleRestar, handleAgregar}) => {
     <Button colorScheme='teal' variant='outline' onClick={handleRestar}>
       -
     </Button></ButtonGroup> 
-        <Button variant='solid' colorScheme='blue'>
-          Comprar
-        </Button>
         <Button variant='ghost' colorScheme='blue'fontSize='20px' onClick={handleAgregar}>
           Agregar al Carrito
         </Button>
