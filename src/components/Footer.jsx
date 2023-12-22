@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
 import './Footer';
+import { Link } from 'react-router-dom';
 
 
 const Footer = () => {
@@ -8,22 +9,26 @@ const Footer = () => {
     <footer className="bg-secondary text-light  boTTom" >
       <Container  >
         <Row >
-          <Col sm="4" >
-            <h5>Información de contacto</h5>
+        <Col sm="3" className='mt-4' >
+            <h5>Media Palta</h5>
+            <p>Los ofrecemos productos de Excelente Calidad</p>
+        
+          </Col>
+          <Col sm="3" className='mt-4'>
+            <h5>Categorias</h5>
+            <Link to={"/"}><p>Inicio</p></Link>
+            <Link to={"/About"}><p>Nosotros</p></Link>
+            <Link to={"/"}><p>Productos</p></Link>
+            <Link to={"/Contacto"}><p>Contacto</p></Link>
+          </Col>
+          <Col sm="3" className='mt-4'>
+          <h5>Información de contacto</h5>
             <p>Correo electrónico: mediapalta@gmail.com</p>
             <p>Teléfono: 123-456-7890</p>
           </Col>
-          <Col sm="4">
-          <h2>Hola</h2>
-          </Col>
-          <Col sm="4">
-            <h5>Enlaces útiles</h5>
-            <ul>
-              <li><a href="#">Inicio</a></li>
-              <li><a href="#">Acerca de nosotros</a></li>
-              <li><a href="#">Productos</a></li>
-              <li><a href="#">Contacto</a></li>
-            </ul>
+          <Col sm="3" className='mt-4 '>
+            <h5>Sigamos Conectados</h5>
+            
           </Col>
         </Row>
         <Row>

@@ -22,26 +22,31 @@ const App = () => {
   const [carrito, setCarrito] = useState(carritoStorage);
   const toast = useToast()
 
-  const agregarCarrito = (producto, count) => {
+  const agregarCarrito = (producto, count,productId) => {
 
-    const itemAgregado ={...producto,count};
+    const itemAgregado ={...producto,count,productId};
     const nuevoCarrito = [...carrito];
-    const estaEnElCarrito = carrito.find((producto) => producto.id === itemAgregado.id);
+    const estaEnElCarrito = carrito.find((producto) => producto.id === productId);
+    console.log(itemAgregado)
+    console.log(count)
+    console.log(productId)
     if(estaEnElCarrito){
+      console.log("esta en el carrito")
     estaEnElCarrito.count = estaEnElCarrito.count + count;
   } else {
+    console.log("noesta en el carrito")
     nuevoCarrito.push(itemAgregado)
   }
   
   setCarrito(nuevoCarrito);
   toast({
     title: 'Producto Agregado',
-    description: `Has agregado el producto ${producto.titulo}. \n Cantidad: ${itemAgregado.count}`,
+    description: `Has agregado el producto ${producto.titulo}. \n Cantidad: ${itemAgregado.count}` ,
     status: 'success',
     position: 'bottom-right',
     duration: 9000,
-    isClosable: true,
-  })
+    isClosable: true,
+  })
 }
 
  const cantidadCarrito = () =>{

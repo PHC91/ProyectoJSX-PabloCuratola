@@ -10,11 +10,10 @@ const ItemDetail = ({productos}) => {
   
   const [count, setCount] = useState(1)
   
-  // const {id} = useParams();
+const {id} =useParams();
   const [productosMostrar,setProductosMostrar] = useState()
   
   useEffect(()=>{ 
-    // const filtrarProductos = productos.filter((producto) => producto.id ==id)
     setProductosMostrar(productos)
   })
   
@@ -61,7 +60,7 @@ const ItemDetail = ({productos}) => {
     </CardBody>
     <Divider />
     <CardFooter >
-    <ItemCount count={count} handleSumar={handleSumar} handleRestar={handleRestar} handleAgregar={()=>{agregarCarrito(productos, count)}}/>
+    <ItemCount count={count} handleSumar={handleSumar} handleRestar={handleRestar} handleAgregar={()=>{agregarCarrito(productos, count, id)}}/>
     </CardFooter>
   </Card> </div>
   
