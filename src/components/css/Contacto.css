@@ -1,4 +1,6 @@
 .customBorder {
+    border-left: none;
+    border-right: none;
     border: 5px solid #48be12;
     padding: 20px 20px 20px 100px;
     font-size: 30px;

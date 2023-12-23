@@ -7,6 +7,7 @@ import Carrusel from "./Carrusel"
 import Suscripcion from './Suscripcion' 
 import { collection, getDocs } from 'firebase/firestore'
 import {db}  from '../firebase/firebase'
+import "../components/css/itemList.css"
 
 const ItemListContainer = () => {
 const {categoria} = useParams()
@@ -63,7 +64,7 @@ getDocs(productos)
         <GridItem w='auto' h='auto'  key={productos.id}>
       
           <Card maxW='sm'>
-  <CardBody>
+  <CardBody className='foNt'>
     <Image
     className="imagen-card"
       src={productos.imagen}

@@ -1,8 +1,21 @@
 .boTTom {
-    position: fixed;
-    bottom: 0;
-    padding-top: 100px;
-    width: 100%;
-    max-height: 100%;
     
+  margin: 0;
+height: auto;
+    width: 100%;
+   
+    
+}
+
+.foNt{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.iCons{
+    width: 20%;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
 }

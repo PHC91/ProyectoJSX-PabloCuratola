@@ -1,14 +1,14 @@
-.tiTulo{
-    text-align: center;
-    background-color: rgba(150, 102, 12, 0.801);
-    font-size: 30px;
-   }
 
-.imagen-card{
+
+/* .imagen-card{
     display: flex;
     width: 500px; 
   height: 300px;
   justify-items: center; 
   object-fit: cover;
   ;
+} */
+
+.foNt{
+  font-family: 'Montserrat', sans-serif;
 }

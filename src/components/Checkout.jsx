@@ -11,10 +11,10 @@ import Container from 'react-bootstrap/Container';
 import Swal from 'sweetalert2';
 import ItemListContainer from './ItemListContainer';
 import Card from 'react-bootstrap/Card';
-
+import {useNavigate} from 'react-router-dom';
 const Checkout = () => {
 
-
+  const navigate = useNavigate();
   const {handleSubmit, register} = useForm()
 
    const[pedidoId, setPedidoId] = useState("")
@@ -35,11 +35,21 @@ const Checkout = () => {
 
     addDoc(pedidosRef, pedido)
     .then ((doc) =>{
-      setPedidoId(doc.id);
-      vaciarCarrito();
-      <ItemListContainer/>
-    })
-  }
+      return (
+        Swal.fire({
+          title: "Pedido Confirmado",
+          text: `El codigo de su pedido es: ${doc.id}`, 
+          icon: "success"
+        }).then(()=>{
+          vaciarCarrito();
+          navigate('/');
+        })
+        )
+     
+      
+    })
+  }
+  
   
   
   

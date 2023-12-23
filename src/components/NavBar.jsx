@@ -49,15 +49,15 @@ const NavBar = () => {
 </Box>
     </div>
     <div>
-  <Box w='100%' h='100%'   >
+  <Box w='100%' h='100%' className='foNt'  >
   <Flex justifyContent="center" alignItems="center" gap="5" margin=" 20px 0px" >
     <Nav>
-  <Nav.Link  className="NavLink" border="1px">
-    Nosotros
+  <Nav.Link className="NavLink" border="1px"><Link  to="/About">
+    Nosotros</Link>
   </Nav.Link>
   </Nav>
   <Nav >
-  <NavDropdown title="Despensa" id="" color="#B2840B">
+  <NavDropdown title="Despensa" id="" >
   <NavDropdown.Item eventKey="4.1"><Link to={`/categoria/${'Aceite'}`}>Aceites</Link></NavDropdown.Item>
   <NavDropdown.Item eventKey="4.2"><Link to={`/categoria/${'Edulcorante'}`}>Edulcorantes Naturales</Link></NavDropdown.Item>
     <NavDropdown.Item eventKey="4.3"><Link to={`/categoria/${'Conservas'}`}>Conservas</Link></NavDropdown.Item>
@@ -65,7 +65,7 @@ const NavBar = () => {
   </NavDropdown>
 </Nav>
   <Nav paddingX="10px">
-  <NavDropdown title="Alimentos Naturales" id=""color="#B2840B">
+  <NavDropdown title="Alimentos Naturales" id="">
     <NavDropdown.Item eventKey="4.1">
     <Link to={`/categoria/${'Frutos Secos'}`}>
     Frutos Secos</Link></NavDropdown.Item>
@@ -79,14 +79,14 @@ const NavBar = () => {
 </Nav>
 
   <Nav>
-  <NavDropdown title="Bebidas e Infusiones" id="nav-dropdown" color="#B2840B">
+  <NavDropdown title="Bebidas e Infusiones" id="nav-dropdown" >
     <NavDropdown.Item eventKey="4.1"><Link to={`/categoria/${'Leche Vegetal'}`}>Leches Vegetales</Link></NavDropdown.Item>
     <NavDropdown.Item eventKey="4.2"><Link to={`/categoria/${'TDM'}`}>Tes del Mundo</Link></NavDropdown.Item>
     <NavDropdown.Item eventKey="4.3"><Link to={`/categoria/${'Jugos'}`}>Jugos</Link></NavDropdown.Item>
   </NavDropdown>
 </Nav>
 <Nav>
-<Nav.Item colorScheme='#B2840B' border="1px" color="#B2840B">
+<Nav.Item colorScheme='#B2840B' border="1px" >
   <Nav.Link> <Link to="/Contacto">
     Contacto </Link>
     </Nav.Link>
