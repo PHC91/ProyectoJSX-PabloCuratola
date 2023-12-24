@@ -47,7 +47,7 @@ const Footer = () => {
             
           </Col>
         </Row>
-        <Row className='mb-5 '>
+        <Row className='mb-5 mt-5 '>
           
            <Col sm="4">Medios de Pago</Col>
            <Col sm="2"> <img className='iCons' src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png"/></Col>
